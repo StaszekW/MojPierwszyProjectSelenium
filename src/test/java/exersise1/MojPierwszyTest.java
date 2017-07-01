@@ -293,34 +293,4 @@ public class MojPierwszyTest {
         System.out.println("przycisk ok po wyslaniu: " + odpText);
         Assert.assertTrue(odpText.contains("BEST"));
     }
-
-    /*
-    @Test //metoda będąca testem
-    public void testBrowserData() throws InterruptedException {
-        WebElement link = driver.findElement(By.partialLinkText("podstawowe"));
-        link.click();
-        //wybieramy a nastepnie zaznaczamy przez select - Opera
-        Select przegladarka = new Select(driver.findElement(By.name("Browser")));
-        //  WebElement browsers = driver.findElement(By.cssSelector("select[name='Browser']"));
-        //  Select przegladarka = new Select(browsers);
-        przegladarka.selectByVisibleText("Opera");
-        Thread.sleep(10000);
-        List<WebElement> przegladarki = przegladarka.getOptions();
-        System.out.println("liczba przegladarek w selekcie= " + przegladarki.size());
-        for (int i = 0; i < przegladarki.size(); i++) {
-            //szukamy elementu ktory jest zaznaczony
-            if (przegladarki.get(i).isSelected()) {  //sprawdzamy co jest zaznaczone
-                String jakaPrzegladarka = przegladarki.get(i).getText();
-                System.out.println("zaznaczony jest element: " + i
-                        + " o wartosci: " + jakaPrzegladarka);
-                Assert.assertTrue(jakaPrzegladarka.equals("Opera"));
-            } else { // wypisanie elementow nie zaznaczonych
-                String jakaPrzegladarka = przegladarki.get(i).getText();
-                System.out.println("ten element nie jest zaznaczony: " + i
-                        + " o wartosci: " + jakaPrzegladarka);
-                Assert.assertFalse(jakaPrzegladarka.equals("Opera"));
-            }
-        }
-    }*/
-
 }
