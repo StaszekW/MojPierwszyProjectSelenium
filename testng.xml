@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Selenium Grid Examples" verbose="3" parallel="tests" thread-count="2">
+    <parameter name="url" value="http://helion.pl" />
+    <parameter name="seleniumHost" value="localhost" />
+    <parameter name="seleniumPort" value="4444" />
+    <parameter name="browser" value="firefox" />
+
+    <test name="Test Grid firefox">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="exersise1.helionTest" />
+        </classes>
+    </test>
+    <test name="Test Grid chrome">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="exersise1.helionTest" />
+        </classes>
+    </test>
+    <test name="Test Grid Edge">
+        <parameter name="browser" value="edge" />
+        <classes>
+            <class name="exersise1.helionTest" />
+        </classes>
+    </test>
+    <test name="Test Grid ANDROID">
+        <parameter name="browser" value="ANDROID" />
+        <classes>
+            <class name="exersise1.helionTest" />
+        </classes>
+    </test>
+    <test name="Test Grid ANDROID-SDK">
+        <parameter name="browser" value="ANDROID-SDK" />
+        <classes>
+            <class name="exersise1.helionTest" />
+        </classes>
+    </test>
+</suite>
+
+<!--<suite verbose="0" name="Command line suite">-->
+<!--<test name="Command line test">-->
+    <!--<classes>-->
+        <!--<class name="exersise1.helionTest"/>-->
+        <!--<class name="exersise1.MojPierwszyTest"/>-->
+    <!--</classes>-->
+<!--</test> &lt;!&ndash; Command line test &ndash;&gt;-->
+<!--</suite> &lt;!&ndash; Command line suite &ndash;&gt;-->

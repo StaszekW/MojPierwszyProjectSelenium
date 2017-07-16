@@ -4,13 +4,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -19,16 +25,25 @@ public class MojPierwszyTest {
     WebDriver driver;
 
     @BeforeClass //metoda uruchamiana przed każdą metodą typu test
-    public void setUp() {
+    public void setUp() throws MalformedURLException {
         //    System.setProperty("webdriver.gecko.driver", "c:\\pliki\\geckodriver.exe");
-        System.setProperty("webdriver.chrome.driver", "c:\\pliki\\chromedriver.exe");
+       // System.setProperty("webdriver.chrome.driver", "c:\\pliki\\chromedriver.exe");
         //    System.setProperty("webdriver.edge.driver", "c:\\pliki\\MicrosoftWebDriver.exe");
-        //    System.setProperty("webdriver.ie.driver", "c:\\pliki\\IEDriverServer.exe");
+
+
         //    driver = new FirefoxDriver();
-        driver = new ChromeDriver();
-        //    driver = new EdgeDriver();
-        //   driver = new InternetExplorerDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+      //  driver = new ChromeDriver();
+//            driver = new EdgeDriver();
+        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), DesiredCapabilities.edge());
+//        DesiredCapabilities ieCaps = DesiredCapabilities.internetExplorer();
+//        ieCaps.setCapability(InternetExplorerDriver.INITIAL_BROWSER_URL, "http://www.google.com/");
+//        File ieFile = new File("c:\\pliki\\IEDriverServer.exe");
+//        System.setProperty("webdriver.ie.driver", ieFile.getAbsolutePath());
+//        ieCaps.setCapability(CapabilityType.BROWSER_NAME, "IE");
+//        ieCaps.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
+//        ieCaps.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
+//           driver = new InternetExplorerDriver();
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
 
     @BeforeMethod
@@ -36,7 +51,12 @@ public class MojPierwszyTest {
         driver.navigate().to("http://192.168.56.3");
     }
 
-    @AfterTest //metoda uruchamiana po każdej metodzie typu test
+
+//    @AfterTest //metoda uruchamiana po każdej metodzie typu test
+//    public void tearDown1() {
+//        driver.quit();
+//    }
+    @AfterClass //metoda uruchamiana po każdej metodzie typu test
     public void tearDown() {
         driver.quit();
     }
