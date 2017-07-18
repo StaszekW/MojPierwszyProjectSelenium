@@ -83,26 +83,26 @@ public class helionTest {
             driver = new RemoteWebDriver(new URL
                     ("http://"+seleniumHost+":"+seleniumPort+"/wd/hub"),edgeCaps);
         }
-        else if (browser.equals("ANDROID")) {
-            DesiredCapabilities andrCaps = DesiredCapabilities.android();
-            andrCaps.setCapability(CapabilityType.BROWSER_NAME, "chrome");
-            andrCaps.setCapability("platformName", "Android-dev");
-            andrCaps.setCapability("deviceName", "HT4BLJT02124");
-            andrCaps.setCapability(CapabilityType.PLATFORM, "ANDROID");
-
-            driver = new RemoteWebDriver(new URL
-                    ("http://"+seleniumHost+":"+seleniumPort+"/wd/hub"),andrCaps);
-        }
-        else if (browser.equals("ANDROID-SDK")) {
-            DesiredCapabilities andrCaps = DesiredCapabilities.android();
-            andrCaps.setCapability(CapabilityType.BROWSER_NAME, "chrome");
-            andrCaps.setCapability("platformName", "Android-sdk");
-            andrCaps.setCapability("deviceName", "emulator-5554");
-            andrCaps.setCapability(CapabilityType.PLATFORM, "ANDROID");
-
-            driver = new RemoteWebDriver(new URL
-                    ("http://"+seleniumHost+":"+seleniumPort+"/wd/hub"),andrCaps);
-        }
+//        else if (browser.equals("ANDROID")) {
+//            DesiredCapabilities andrCaps = DesiredCapabilities.android();
+//            andrCaps.setCapability(CapabilityType.BROWSER_NAME, "chrome");
+//            andrCaps.setCapability("platformName", "Android-dev");
+//            andrCaps.setCapability("deviceName", "HT4BLJT02124");
+//            andrCaps.setCapability(CapabilityType.PLATFORM, "ANDROID");
+//
+//            driver = new RemoteWebDriver(new URL
+//                    ("http://"+seleniumHost+":"+seleniumPort+"/wd/hub"),andrCaps);
+//        }
+//        else if (browser.equals("ANDROID-SDK")) {
+//            DesiredCapabilities andrCaps = DesiredCapabilities.android();
+//            andrCaps.setCapability(CapabilityType.BROWSER_NAME, "chrome");
+//            andrCaps.setCapability("platformName", "Android-sdk");
+//            andrCaps.setCapability("deviceName", "emulator-5554");
+//            andrCaps.setCapability(CapabilityType.PLATFORM, "ANDROID");
+//
+//            driver = new RemoteWebDriver(new URL
+//                    ("http://"+seleniumHost+":"+seleniumPort+"/wd/hub"),andrCaps);
+//        }
 
      //   driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), chromeCaps);
         driver.navigate().to(url);
@@ -113,6 +113,11 @@ public class helionTest {
 //    public void browserStart() {
 //        driver.get("http://helion.pl");
 //    }
+
+    @AfterTest //metoda uruchamiana po każdej metodzie typu test
+    public void tearDown1() {
+        driver.quit();
+    }
 
     @AfterClass //metoda uruchamiana na zakończenie klasy (sprztamy po testach)
     public void tearDown() {
