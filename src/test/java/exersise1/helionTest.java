@@ -109,18 +109,6 @@ public class helionTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-
-
-//    public void setUp(String seleniumHost, int seleniumPort, String browser, String url) throws Exception {
-//        if (browser.equals("*firefox")){
-//            driver = new RemoteWebDriver(new URL("http://"+seleniumHost+":"+seleniumPort+"/wd/hub"),DesiredCapabilities.firefox());
-//        }
-//        else if (browser.equals("*iexplore")){
-//            driver = new RemoteWebDriver(new URL("http://"+seleniumHost+":"+seleniumPort+"/wd/hub"),DesiredCapabilities.internetExplorer());
-//        }
-//        driver.navigate().to(url);
-//    }
-
 //   @BeforeTest //metoda uruchamiana przed każdą metodą typu test
 //    public void browserStart() {
 //        driver.get("http://helion.pl");
